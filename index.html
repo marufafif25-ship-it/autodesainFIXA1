@@ -2,8 +2,8 @@
 <html lang="id" class="theme-dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/landing/brand/logo.png" />
-    <link rel="apple-touch-icon" href="/landing/brand/logo.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/landing/brand/logoFix-web.png" />
+    <link rel="apple-touch-icon" href="/landing/brand/logoFix-web.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Design Studio — Studio Visual Instan</title>
     <meta name="description" content="Visual iklan profesional dalam hitungan detik. Banner, thumbnail YouTube, story TikTok, dan typography ads — tanpa Canva, tanpa Photoshop, tanpa desainer." />
@@ -12,7 +12,7 @@
     <meta property="og:type"        content="website" />
     <meta property="og:title"       content="AI Design Studio — Studio Visual Instan" />
     <meta property="og:description" content="Buat banner, thumbnail YouTube, dan typography ads profesional dalam hitungan detik. Tanpa designer, tanpa Canva." />
-    <meta property="og:image"       content="/landing/brand/logo.png" />
+    <meta property="og:image"       content="/landing/brand/logoFix-web.png" />
     <meta property="og:site_name"   content="AI Design Studio" />
     <meta property="og:locale"      content="id_ID" />
 
@@ -20,7 +20,7 @@
     <meta name="twitter:card"        content="summary_large_image" />
     <meta name="twitter:title"       content="AI Design Studio — Studio Visual Instan" />
     <meta name="twitter:description" content="Konten desain profesional dalam hitungan detik. Tanpa designer." />
-    <meta name="twitter:image"       content="/landing/brand/logo.png" />
+    <meta name="twitter:image"       content="/landing/brand/logoFix-web.png" />
 
     <meta name="theme-color" content="#1D4ED8" />
 
@@ -31,23 +31,20 @@
     <!-- Initial loader — simple "Loading..." splash, removed by React on mount -->
     <style>
       :root { color-scheme: dark; }
-      html, body { background: #0a0405; margin: 0; }
+      html, body { background: #080F1F; margin: 0; }
       #initial-loader {
         position: fixed; inset: 0; z-index: 9999;
         display: flex; flex-direction: column; align-items: center; justify-content: center;
         gap: 20px;
-        background: #0a0405;
+        background: #080F1F;
         font-family: Inter, system-ui, -apple-system, sans-serif;
         transition: opacity 0.25s ease;
       }
       #initial-loader.is-hiding { opacity: 0; pointer-events: none; }
       #initial-loader .il-logo {
-        width: 56px; height: 56px;
-        background: linear-gradient(135deg, #315fdf, #163da5);
-        border-radius: 12px;
-        display: flex; align-items: center; justify-content: center;
-        color: #fff; font-weight: 900; font-size: 22px;
-        box-shadow: 0 0 24px rgba(29,78,216,0.5);
+        width: 72px; height: 56px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 14px rgba(29,78,216,0.55));
         animation: il-pulse 1.4s ease-in-out infinite;
       }
       #initial-loader .il-loading {
@@ -69,9 +66,22 @@
       #initial-loader .il-loading .il-dots-text span:nth-child(2) { animation-delay: 0.2s; }
       #initial-loader .il-loading .il-dots-text span:nth-child(3) { animation-delay: 0.4s; }
 
+      /* Keep the navbar mark stable at every breakpoint, independent of its
+         transparent canvas or intrinsic image dimensions. */
+      header a[href="#top"] > span:first-child {
+        width: 2.25rem;
+        flex-basis: 2.25rem;
+      }
+      @media (min-width: 640px) {
+        header a[href="#top"] > span:first-child {
+          width: 2.5rem;
+          flex-basis: 2.5rem;
+        }
+      }
+
       @keyframes il-pulse {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 24px rgba(29,78,216,0.5); }
-        50%      { transform: scale(1.08); box-shadow: 0 0 36px rgba(29,78,216,0.72); }
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50%      { transform: scale(1.06); opacity: 1; }
       }
       @keyframes il-dot-fade {
         0%, 100% { opacity: 0; }
@@ -80,13 +90,13 @@
     </style>
 
     <!-- tracking dikosongkan untuk paket reseller -->
-    <script type="module" crossorigin src="/assets/index-CzR-3Dh3.js?v=deepcobalt1"></script>
+    <script type="module" crossorigin src="/assets/index-CzR-3Dh3.js?v=logo-20260924"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CvxulvW7.css">
   </head>
   <body>
     <!-- KONFIGURASI white-label (edit /config.js, tanpa build). Dimuat SEBELUM
          bundle agar window.__AF_CONFIG sudah siap saat app jalan. -->
-    <script src="/config.js?v=deepcobalt1"></script>
+    <script src="/config.js?v=logo-20260924"></script>
     <script>
       // Set judul tab + WARNA brand dari config. Override di-inject sebagai
       // <style> yang HANYA menarget DARK mode (:root:not(.theme-light)) →
@@ -144,7 +154,7 @@
 
     <!-- Initial loader — simple "Loading..." splash. Removed by main.jsx on React mount. -->
     <div id="initial-loader">
-      <div class="il-logo">F</div>
+      <img class="il-logo" src="/landing/brand/logoFix-web.png" alt="Auto Desain" />
       <div class="il-loading">Loading<span class="il-dots-text"><span>.</span><span>.</span><span>.</span></span></div>
     </div>
 
