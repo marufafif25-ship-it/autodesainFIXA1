@@ -11,8 +11,8 @@ window.__AF_CONFIG = {
 
   /* -- 1b. WARNA (opsional) - kosongkan "" = pakai bawaan -------------
      accentColor : warna utama (tombol, link, glow). bgColor : background GELAP. */
-  accentColor: "",   // contoh: "#7c3aed" (ungu) / "#2563eb" (biru) / "#0d9488" (teal)
-  bgColor:     "",   // contoh: "#0a0a14" (navy gelap) / "#0c0a09" (charcoal)
+  accentColor: "#087FD5", // biru utama, selaras dengan identitas @autodesain.ai
+  bgColor:     "#07182B", // navy gelap agar tampilan nyaman dan kontras
 
   /* -- 2. LINK ------------------------------------------------------- */
   paymentUrl:   "http://lynk.id/autodesainai/1xnme4dkymej",   // link pembayaran/checkout kamu
