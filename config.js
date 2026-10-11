@@ -12,9 +12,9 @@ window.__AF_CONFIG = {
   /* -- 1b. WARNA (opsional) - kosongkan "" = pakai bawaan -------------
      Warna dark mode: accentColor + bgColor.
      Warna light mode: accentColorLight + bgColorLight. */
-  accentColor:      "#3B82F6", // blue cerah untuk aksen di latar gelap
+  accentColor:      "#6B83F5", // indigo cerah untuk aksen di latar gelap
   bgColor:          "#0B1220", // midnight navy, lebih lembut dari hitam
-  accentColorLight: "#1D4ED8", // cobalt untuk teks dan tombol di latar terang
+  accentColorLight: "#3157D5", // indigo kuat untuk teks dan tombol di latar terang
   bgColorLight:     "#F4F7FC", // cool white dengan sedikit rona biru
 
   /* -- 2. LINK ------------------------------------------------------- */
