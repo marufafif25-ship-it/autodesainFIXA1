@@ -21,9 +21,9 @@ window.__AF_CONFIG = {
   paymentUrl:   "http://lynk.id/autodesainai/1xnme4dkymej",   // link pembayaran/checkout kamu
   affiliateUrl: "",                            // link daftar affiliate (Wajib Di isi "")
 
-  // Mode "9 Feed Konsisten" - link ChatGPT untuk tombol setelah Copy & tutorial.
-  // chatgptUrl = URL tombol Gemini. gptUrl = Custom GPT kamu sendiri (kosong "" = tombol GPT disembunyikan).
-  chatgptUrl: "https://gemini.google.com/app",
+  // Mode "9 Feed Konsisten" - link Gemini untuk tombol setelah Copy & tutorial.
+  // geminiUrl = URL tombol Gemini. gptUrl = Custom GPT kamu sendiri (kosong "" = tombol GPT disembunyikan).
+  geminiUrl: "https://gemini.google.com/app",
   gptUrl:     "",
 
   /* -- 2b. SOCIAL (footer) ------------------------------------------- */
