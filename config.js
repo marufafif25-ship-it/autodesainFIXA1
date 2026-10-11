@@ -10,9 +10,12 @@ window.__AF_CONFIG = {
   logoUrl:   "/landing/brand/logoFix-web.png", // versi web logoFix.png yang sudah dirapikan padding-nya
 
   /* -- 1b. WARNA (opsional) - kosongkan "" = pakai bawaan -------------
-     accentColor : warna utama (tombol, link, glow). bgColor : background GELAP. */
-  accentColor: "#1D4ED8", // deep cobalt: profesional, tenang, dan tetap kuat
-  bgColor:     "#080F1F", // midnight navy: nyaman dibaca tanpa terasa hitam pekat
+     Warna dark mode: accentColor + bgColor.
+     Warna light mode: accentColorLight + bgColorLight. */
+  accentColor:      "#3B82F6", // blue cerah untuk aksen di latar gelap
+  bgColor:          "#0B1220", // midnight navy, lebih lembut dari hitam
+  accentColorLight: "#1D4ED8", // cobalt untuk teks dan tombol di latar terang
+  bgColorLight:     "#F4F7FC", // cool white dengan sedikit rona biru
 
   /* -- 2. LINK ------------------------------------------------------- */
   paymentUrl:   "http://lynk.id/autodesainai/1xnme4dkymej",   // link pembayaran/checkout kamu

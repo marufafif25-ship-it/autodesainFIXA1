@@ -121,12 +121,15 @@ Buka  config.js  pakai Notepad / VS Code / editor teks apa pun.
         → biarkan saja kalau kamu menimpa file logo (Langkah 4). Atau isi
           link gambar:  logoUrl: "https://situs.com/logo.png",
 
-  • accentColor: ""        (WARNA — opsional)
-        → warna utama brand (tombol, link, highlight). Isi kode HEX.
-          contoh:  accentColor: "#7c3aed",   (kosongkan "" = merah bawaan)
+  • accentColor / bgColor  (WARNA DARK MODE — opsional)
+        → accentColor untuk tombol, link, dan highlight; bgColor untuk latar.
+          Contoh: accentColor: "#3B82F6", bgColor: "#0B1220"
+          Kosongkan "" untuk warna dark bawaan.
 
-  • bgColor: ""            (WARNA background — opsional, pakai warna GELAP)
-        contoh:  bgColor: "#0a0a14",         (kosongkan "" = gelap bawaan)
+  • accentColorLight / bgColorLight (WARNA LIGHT MODE — opsional)
+        → pasangan warna untuk tema terang.
+          Contoh: accentColorLight: "#1D4ED8", bgColorLight: "#F4F7FC"
+          Kosongkan "" untuk warna light bawaan.
 
   • paymentUrl: "https://..."
         → link checkout/pembayaran kamu (tempat pelanggan beli akses).

@@ -98,10 +98,8 @@
          bundle agar window.__AF_CONFIG sudah siap saat app jalan. -->
     <script src="/config.js?v=logo-20260924"></script>
     <script>
-      // Set judul tab + WARNA brand dari config. Override di-inject sebagai
-      // <style> yang HANYA menarget DARK mode (:root:not(.theme-light)) →
-      // landing (selalu dark) & /app dark ikut warna config; LIGHT mode di /app
-      // tetap pakai tema default (teal/putih). Dijalankan sebelum bundle → no flash.
+      // Set judul tab + warna brand untuk dark dan light mode.
+      // Dijalankan sebelum bundle agar warna tampil tanpa flash.
       (function () {
         try {
           var cfg = window.__AF_CONFIG || {};
@@ -120,30 +118,32 @@
           var toRgb = function (a) { return 'rgb(' + a[0] + ',' + a[1] + ',' + a[2] + ')'; };
 
           var rules = [];
-          // ACCENT
-          var ac = hexToRgb(cfg.accentColor);
-          if (ac) {
-            // pakai rgb() (selalu valid) — tahan walau user lupa tanda '#'
-            rules.push('--accent:' + toRgb(ac) + ';');
-            rules.push('--accent-rgb:' + rgbStr(ac) + ';');
-            rules.push('--accent-hover:' + toRgb(lighten(ac, 0.18)) + ';');
-            rules.push('--accent-deep:' + toRgb(darken(ac, 0.30)) + ';');
-            rules.push('--accent-soft:rgba(' + rgbStr(ac) + ',0.20);');
-            rules.push('--border:rgba(' + rgbStr(ac) + ',0.22);');
-            rules.push('--border-strong:rgba(' + rgbStr(ac) + ',0.42);');
-          }
-          // BACKGROUND (warna gelap; turunkan 4 shade dari 1 warna dasar)
-          var bg = hexToRgb(cfg.bgColor);
-          if (bg) {
-            rules.push('--bg:' + toRgb(bg) + ';');
-            rules.push('--bg-deep:' + toRgb(darken(bg, 0.4)) + ';');
-            rules.push('--bg-panel:' + toRgb(lighten(bg, 0.06)) + ';');
-            rules.push('--bg-elev:' + toRgb(lighten(bg, 0.12)) + ';');
-          }
+          var addThemeRules = function (selector, accentHex, bgHex, isLight) {
+            var declarations = [];
+            var ac = hexToRgb(accentHex);
+            if (ac) {
+              declarations.push('--accent:' + toRgb(ac) + ';');
+              declarations.push('--accent-rgb:' + rgbStr(ac) + ';');
+              declarations.push('--accent-hover:' + toRgb(isLight ? darken(ac, 0.12) : lighten(ac, 0.12)) + ';');
+              declarations.push('--accent-deep:' + toRgb(darken(ac, 0.30)) + ';');
+              declarations.push('--accent-soft:rgba(' + rgbStr(ac) + ',0.20);');
+              declarations.push('--border:rgba(' + rgbStr(ac) + ',0.18);');
+              declarations.push('--border-strong:rgba(' + rgbStr(ac) + ',0.38);');
+            }
+            var bg = hexToRgb(bgHex);
+            if (bg) {
+              declarations.push('--bg:' + toRgb(bg) + ';');
+              declarations.push('--bg-deep:' + toRgb(darken(bg, isLight ? 0.04 : 0.4)) + ';');
+              declarations.push('--bg-panel:' + toRgb(lighten(bg, isLight ? 0.40 : 0.06)) + ';');
+              declarations.push('--bg-elev:' + toRgb(isLight ? darken(bg, 0.015) : lighten(bg, 0.12)) + ';');
+            }
+            if (declarations.length) rules.push(selector + '{' + declarations.join('') + '}');
+          };
+          addThemeRules(':root:not(.theme-light)', cfg.accentColor, cfg.bgColor, false);
+          addThemeRules(':root.theme-light', cfg.accentColorLight, cfg.bgColorLight, true);
           if (rules.length) {
             var st = document.createElement('style');
-            // :root:not(.theme-light) → menang atas :root (dark) tapi TIDAK kena light mode
-            st.textContent = ':root:not(.theme-light){' + rules.join('') + '}';
+            st.textContent = rules.join('');
             document.head.appendChild(st);
           }
         } catch (e) {}
