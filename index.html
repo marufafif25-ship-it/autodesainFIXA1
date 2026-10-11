@@ -2,6 +2,20 @@
 <html lang="id" class="theme-dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        var path = window.location.pathname || "";
+        var isStudio = path === "/app" || path.indexOf("/app/") === 0 || window.location.host.indexOf("app.") === 0;
+        if (!isStudio) return;
+        var theme = "light";
+        try {
+          var saved = localStorage.getItem("af_theme");
+          if (saved === "dark" || saved === "light") theme = saved;
+        } catch (e) {}
+        document.documentElement.classList.remove("theme-dark", "theme-light");
+        document.documentElement.classList.add(theme === "dark" ? "theme-dark" : "theme-light");
+      })();
+    </script>
     <link rel="icon" type="image/png" sizes="512x512" href="/landing/brand/logoFix-web.png" />
     <link rel="apple-touch-icon" href="/landing/brand/logoFix-web.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,6 +46,11 @@
     <style>
       :root { color-scheme: dark; }
       html, body { background: #080F1F; margin: 0; }
+      :root.theme-light { color-scheme: light; background: #F4F7FC; }
+      :root.theme-light body,
+      :root.theme-light #initial-loader { background: #F4F7FC; }
+      :root.theme-light #initial-loader .il-loading { color: rgba(15,23,42,0.7); }
+      :root.theme-light #initial-loader .il-logo { filter: drop-shadow(0 0 14px rgba(29,78,216,0.24)); }
       #initial-loader {
         position: fixed; inset: 0; z-index: 9999;
         display: flex; flex-direction: column; align-items: center; justify-content: center;
